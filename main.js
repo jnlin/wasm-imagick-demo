@@ -1,11 +1,11 @@
 
-var wasmMagick = require("@imagemagick/magick-wasm");
+const wasmMagick = require("@imagemagick/magick-wasm");
 const { MagickFormat } = require("@imagemagick/magick-wasm/magick-format");
-var fs = require("fs")
+const fs = require("fs")
 
 wasmMagick.initializeImageMagick().then(async () => {
-    var buf = fs.readFileSync("/Users/jnlin/git/wasm-imagick-demo/test.jpg");
-    var view = new Uint8Array(buf);
+    const buf = fs.readFileSync("/Users/jnlin/git/wasm-imagick-demo/test.jpg");
+    const view = new Uint8Array(buf);
 
     wasmMagick.ImageMagick.read(view, (image) => {
         console.log(image.width);
